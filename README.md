@@ -314,7 +314,7 @@ module "my_management_cluster_gke" {
 ## Requirements
 
 | Name | Version |
-| ---- | ------- |
+|------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.11.0 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | >= 7.0.0, < 9.0.0 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 3.0 |
@@ -325,13 +325,13 @@ module "my_management_cluster_gke" {
 ## Modules
 
 | Name | Source | Version |
-| ---- | ------ | ------- |
+|------|--------|---------|
 | <a name="module_management_cluster"></a> [management\_cluster](#module\_management\_cluster) | github.com/humanitec-tf-modules/k8s-management-cluster | add-operator-k8s |
 
 ## Resources
 
 | Name | Type |
-| ---- | ---- |
+|------|------|
 | [google_project_iam_custom_role.orchestrator_cluster_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_custom_role) | resource |
 | [google_project_iam_member.orchestrator_cluster_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [random_string.iam_role_id_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
@@ -342,7 +342,7 @@ module "my_management_cluster_gke" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-| ---- | ----------- | ---- | ------- | :------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_cloud_account_id"></a> [cloud\_account\_id](#input\_cloud\_account\_id) | ID of the GCP Cloud Account the Orchestrator uses to access the cluster. | `string` | n/a | yes |
 | <a name="input_cloud_account_service_account_email"></a> [cloud\_account\_service\_account\_email](#input\_cloud\_account\_service\_account\_email) | Email address of the Google service account behind the GCP Cloud Account the Orchestrator uses to access the cluster, e.g. `humanitec-orchestrator@my-project.iam.gserviceaccount.com`. The module grants it the IAM custom role allowing access to the cluster, and binds the Kubernetes ClusterRole `cluster_role_name` to it. | `string` | n/a | yes |
 | <a name="input_cloud_account_type"></a> [cloud\_account\_type](#input\_cloud\_account\_type) | Type of the Cloud Account referenced by `cloud_account_id`, which determines the Kubernetes user name of its Google service account. `gcp-identity` (GCP Service account impersonation, recommended): the user name is the email address of the service account. `gcp` (GCP Service account keys): the user name is the OAuth client ID of the service account, which the module reads from the service account. See https://developer.humanitec.com/platform-orchestrator/docs/platform-orchestrator/security/cloud-accounts/gcp/ | `string` | `"gcp-identity"` | no |
@@ -413,7 +413,7 @@ module "my_management_cluster_gke" {
 ## Outputs
 
 | Name | Description |
-| ---- | ----------- |
+|------|-------------|
 | <a name="output_cluster_access_subject"></a> [cluster\_access\_subject](#output\_cluster\_access\_subject) | Subject of the Kubernetes ClusterRoleBinding, i.e. the identity the Orchestrator uses to access the cluster, as an object with the attributes `kind` and `name` |
 | <a name="output_cluster_role_binding_name"></a> [cluster\_role\_binding\_name](#output\_cluster\_role\_binding\_name) | Name of the Kubernetes ClusterRoleBinding granting the Orchestrator access to the cluster |
 | <a name="output_cluster_role_name"></a> [cluster\_role\_name](#output\_cluster\_role\_name) | Name of the Kubernetes ClusterRole granting the Orchestrator access to the cluster |
