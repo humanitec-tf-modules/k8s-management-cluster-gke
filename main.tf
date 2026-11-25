@@ -119,8 +119,7 @@ resource "google_project_iam_member" "orchestrator_cluster_access" {
 }
 
 module "management_cluster" {
-  # TODO: use release once available
-  source = "github.com/humanitec-tf-modules/k8s-management-cluster?ref=add-operator-k8s"
+  source = "github.com/humanitec-tf-modules/k8s-management-cluster?ref=v1.0.0"
 
   driver_type                 = "humanitec/k8s-cluster-gke"
   cluster_access_subject_kind = "User"
